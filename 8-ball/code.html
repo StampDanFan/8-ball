@@ -1,0 +1,66 @@
+<!DOCTTYPE html>
+<html>
+    <head>
+        <title>8 Ball</title>
+        <link rel="icon" href="8ball.png">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+        <style>
+            html{
+                background-color:aquamarine;
+            }
+            body {
+                font-family:"Montserrat", sans-serif;
+                padding:5px;
+                border:5px rgb(140, 239, 88) solid;
+                margin:10px;
+                background-color:rgb(229, 229, 229);
+                text-align:center;
+            }
+            #ball {
+                align-self: center;
+                background-color:black;
+                border: 3px black solid;
+                border-radius:50%;
+                margin:auto;
+                color:white;
+                font-size:3em;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>8 ball Fun!</h1>
+        <h3>Instructions:</h3>
+        <p>Ask a question inside you head, then click on the ball. The ball will give you an answer.</p>
+        <div id="ball"></div>
+        <div id="tri"></div>
+        <script>
+            var randIntInc = function(mini, maxi) {
+                return Math.floor(Math.random() * (maxi-mini + 1)) + mini;
+            };
+            var randFloat = function() {
+                return Math.random()
+            };
+            var ball = document.getElementById("ball");
+            ball.style.width = "550px";
+            ball.style.height = "550px";
+            ball.innerHTML = "<br><br><br><br>Click me!";
+            var ballClicked = function() {
+                var randInt = randIntInc(1, 6);
+                if (randInt === 1) {
+                    ball.innerHTML = "<br><br><br><br>Yes";
+                } else if (randInt === 2) {
+                    ball.innerHTML = "<br><br><br><br>No";
+                } else if (randInt === 3) {
+                    ball.innerHTML = "<br><br><br><br>Maybe";
+                } else if (randInt === 4) {
+                    ball.innerHTML = "<br><br><br><br>Ask Later";
+                } else if (randInt === 5) {
+                    ball.innerHTML = "<br><br><br><br>Definitely";
+                } else if (randInt === 6) {
+                    ball.innerHTML = "<br><br><br><br>Definitely No";
+                }
+            };
+            document.addEventListener("click", ballClicked);
+        </script>
+    </body>
+</html>
